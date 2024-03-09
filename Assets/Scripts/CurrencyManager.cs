@@ -7,7 +7,7 @@ using System;
 public class CurrencyManager : Singleton<CurrencyManager>
 {
     private int currentMoney;
-
+    [SerializeField] private Inventory _inventory;
     public static event Action OnMoneyAmountChanged;
     
     public void AddMoney(int amount)
@@ -20,6 +20,23 @@ public class CurrencyManager : Singleton<CurrencyManager>
     {
         currentMoney -= amount;
         OnMoneyAmountChanged?.Invoke();
+    }
+
+    public void BuyItem(ItemSO itemData)
+    {
+        RemoveMoney(itemData.itemBuyPrice);
+        _inventory.AddItem(itemData);
+    }
+
+    public void SellItem(ItemSO itemData)
+    {
+        AddMoney(itemData.itemSellPrice);
+        _inventory.RemoveItem(itemData);
+    }
+
+    public bool TrySpendGold(int itemPriceAmount)
+    {
+        return GetMoney() >= itemPriceAmount;
     }
 
     public int GetMoney()

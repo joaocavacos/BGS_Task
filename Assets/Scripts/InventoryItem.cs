@@ -11,7 +11,7 @@ public class InventoryItem
 
     public InventoryItem(ItemSO itemData)
     {
-        itemData = itemSO;
+        itemSO = itemData;
         AddItemQuantity();
     }
 

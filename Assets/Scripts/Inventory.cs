@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<InventoryItem> inventory;
-    private Dictionary<ItemSO, InventoryItem> _itemDictionary;
+    public List<InventoryItem> inventory = new List<InventoryItem>();
+    private Dictionary<ItemSO, InventoryItem> _itemDictionary = new Dictionary<ItemSO, InventoryItem>();
 
     public void AddItem(ItemSO itemData)
     {
