@@ -7,14 +7,13 @@ using UnityEngine.UI;
 
 public class InventoryInterface : MonoBehaviour
 {
-    
     [SerializeField] private Inventory _inventory;
 
     public Transform slots;
     public Transform itemSlotTemplate;
     public Transform outfitGO;
     public Animator outfitAnimator;
-    public bool IsOpen;
+    [HideInInspector] public bool IsOpen;
 
     void Start()
     {
