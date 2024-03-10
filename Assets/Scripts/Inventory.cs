@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,17 @@ public class Inventory : MonoBehaviour
 {
     public List<InventoryItem> inventory = new List<InventoryItem>();
     private Dictionary<ItemSO, InventoryItem> _itemDictionary = new Dictionary<ItemSO, InventoryItem>();
+
+    [Space, SerializeField] private InventoryInterface _inventoryInterface;
+    public KeyCode inventoryOpenKeycode;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(inventoryOpenKeycode) && !_inventoryInterface.IsOpen)
+        {
+            OpenInventory();
+        }
+    }
 
     public void AddItem(ItemSO itemData)
     {
@@ -33,6 +45,11 @@ public class Inventory : MonoBehaviour
                 _itemDictionary.Remove(itemData);
             }
         }
+    }
+
+    private void OpenInventory()
+    {
+        _inventoryInterface.Show();
     }
     
 }

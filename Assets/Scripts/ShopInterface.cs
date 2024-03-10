@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ShopInterface : MonoBehaviour
 {
     private Transform container;
+    private Transform initialButtons;
     [SerializeField] private Transform itemBuyTemplate;
     [SerializeField] private Transform itemSellTemplate;
 
@@ -17,6 +18,7 @@ public class ShopInterface : MonoBehaviour
     private void Awake()
     {
         container = transform.Find("Container");
+        initialButtons = transform.Find("InitialButtons");
     }
 
     private void Start()
@@ -112,11 +114,13 @@ public class ShopInterface : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        initialButtons.gameObject.SetActive(true);
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        initialButtons.gameObject.SetActive(false);
     }
     
 }

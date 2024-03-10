@@ -6,7 +6,7 @@ using System;
 
 public class CurrencyManager : Singleton<CurrencyManager>
 {
-    private int currentMoney;
+    [SerializeField] private int currentMoney;
     [SerializeField] private Inventory _inventory;
     public static event Action OnMoneyAmountChanged;
     

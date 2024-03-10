@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ac9d5137a056f46a0a0c6aa9a89912, type: 3}
+  m_Name: Outfit_Blue
+  m_EditorClassIdentifier: 
+  itemName: Blue Outfit
+  itemDescription: An outfit that is blue.
+  itemBuyPrice: 70
+  itemSellPrice: 35
+  itemIcon: {fileID: -1431219543, guid: fb35a7018555c834ab7a22b1b6ed23b3, type: 3}
+  isEquipable: 1
+  outfitAnimator: {fileID: 9100000, guid: 43d4881cea0ff1b4a900c39f0e1a20d6, type: 2}

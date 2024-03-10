@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private Animator _animator;
+    [SerializeField] private Animator _outfitAnimator;
 
     private float hInput;
     private float vInput;
@@ -23,8 +24,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        GetInput();     
-        SetPlayerAnimation();
+        GetInput();  
+        if(_animator != null) SetPlayerAnimation(_animator);
+        if(_outfitAnimator != null) SetPlayerAnimation(_outfitAnimator);
     }
 
     void FixedUpdate()
@@ -44,16 +46,16 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = movement.normalized * moveSpeed;
     }
 
-    private void SetPlayerAnimation()
+    private void SetPlayerAnimation(Animator animator)
     {
-        _animator.SetFloat("hInput", hInput);
-        _animator.SetFloat("vInput", vInput);
-        _animator.SetFloat("Speed", movement.sqrMagnitude);
+        animator.SetFloat("hInput", hInput);
+        animator.SetFloat("vInput", vInput);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
                 
         if (Mathf.Abs(hInput) >= 1 || Mathf.Abs(vInput) >= 1)
         {
-            _animator.SetFloat("lastMoveX", vInput);
-            _animator.SetFloat("lastMoveY", hInput);
+            animator.SetFloat("lastMoveX", vInput);
+            animator.SetFloat("lastMoveY", hInput);
         }
     }
 
